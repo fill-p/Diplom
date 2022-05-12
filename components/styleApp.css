@@ -1,0 +1,269 @@
+*, *:after, *:before {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    }
+    
+    body {
+        width: 100%;
+        height: 100%;
+        background-color: rgb(48, 46, 55);
+        color: #fff;
+        font-family: 'Times New Roman', Arial, sans-serif;
+        font-size: 1em;
+        line-height: 135%;
+    }
+
+/* Стили для светлой темы */
+    body.light-theme {
+        width: 100%;
+        height: 100%;
+        background-color: rgb(202, 199, 199);
+        color: rgb(0, 0, 0);
+        font-family: 'Times New Roman', Arial, sans-serif;
+        font-size: 1em;
+        line-height: 135%;
+    }
+
+    body.light-theme header{
+        width: 100%;
+        float: left;
+        padding: 1%;
+        background-color: rgb(255, 255, 255);
+        border-bottom: 2px solid rgb(112, 115, 131);
+        position: static;
+    }
+
+    body.light-theme h {
+        color: #000000;
+    }
+
+    body.light-theme ul{
+        margin-top: 4.7%;
+        width: 25%;
+        background-color: #f1f1f1;  
+        position: fixed;
+        height: 100%;
+        overflow: auto;
+    }
+
+    body.light-theme li a{
+        display: block;
+        color: rgb(0, 0, 0);
+        padding: 8px 0 8px 16px;
+        text-decoration: none;
+    }
+
+    body.light-theme .menu {
+        width: 100%;
+        float: right;
+        background-color: #dfdcdc;
+        color: rgb(0, 0, 0);
+        padding-block: 14px;
+        padding-left: 20px;
+        border: 0;
+        text-align: left;
+    }
+
+    body.light-theme .contact {
+        width: 10%;
+        background-color: #dfdcdc;
+        float: left;
+        padding: 1%;
+    }
+
+    body.light-theme div.rightContainer {
+        float: right;
+        background-color: #f1f1f1;  
+        width: 25%;
+        margin-left: 75%;
+        position: fixed;
+        margin-top: -37.95%;
+        height: 100%;
+        overflow: auto;
+    }
+
+    body.light-theme input {
+        width: 100%;
+        float: right;
+        background-color: #f1f1f1;
+        color: rgb(0, 0, 0);
+        padding-block: 14px;
+        padding-left: 20px;
+        border: 0;
+        text-align: left;
+    }
+
+    body.light-theme .CodeMirror-hints {
+        background-color: rgb(250, 250, 250);
+        width: auto;
+        height: auto;
+    }
+
+/* Стили для header и его элементов */
+    header {
+        width: 100%;
+        float: left;
+        padding: 1%;
+        background-color: rgb(36, 36, 41);
+        border-bottom: 2px solid rgb(6, 24, 102);
+        position: static;
+        font-size: 60px
+    }
+
+    header #logo {
+        width: 40%;
+        float: left;
+    }
+    
+    header #registration {
+        width: 30%;
+        float: left;
+        text-align: right;
+    }
+    
+    .logoImg {
+        width: 10%;
+    }
+
+/* Стили для левого блока */
+    ul {
+        margin-top: 4.7%;
+        width: 25%;
+        background-color: #232730;  
+        position: fixed;
+        height: 100%;
+        overflow: auto;
+    }
+        
+    li a {
+        display: block;
+        color: white;
+        padding: 8px 0 8px 16px;
+        text-decoration: none;
+    }
+        
+    li a.active {
+        font-size: 40px;
+        background-color: #4CAF50;
+        color: white;
+    }
+        
+    li a:hover:not(.active) {
+        background-color: #555;
+        color: white;
+    }
+
+    .menu {
+        width: 100%;
+        float: right;
+        background-color: #373c46;
+        color: white;
+        padding-block: 14px;
+        padding-left: 20px;
+        border: 0;
+        text-align: left;
+    }
+
+    .imgH {
+        width: 10%;
+    }
+
+    .contact {
+        width: 10%;
+        background-color: #373c46;
+        float: left;
+        padding: 1%;
+    }
+
+/* Стили для кнопок */
+    button {
+        background-color: #22d511;
+        color: #fff;
+        padding: 4px 10px;
+        width: 5%;
+        text-decoration: none;
+        border-radius: 3px;
+        -webkit-transition: 200ms -webkit-transform ease, 200ms transform ease, 200ms;
+        transition: 200ms -webkit-transform ease, 200ms transform ease, 200ms;
+    }
+
+    button:hover {
+        -webkit-transform: translateY(-2px);
+        transform: translateY(-2px);
+    }
+
+    .icon {
+        width: 100%;
+    }
+
+/* Стили для контейнера с textarea и iframe  */
+    .container {
+    position: relative;
+    margin: auto;
+    padding: 0 20px;
+    width: 50%;
+    }
+   
+    .code-container {
+    position: relative;
+    margin-bottom: 1.5rem;
+    overflow: hidden;
+    border-radius: 3px;
+    width: 100%;
+    }
+
+    .code-container:last-child {
+    margin-bottom: 0;
+    }
+    
+    iframe {
+        position: relative;
+        background-color: rgb(255, 255, 255);
+        width: 100%;
+    }
+
+/* Стили для правого блока */
+    .rightContainer {
+        float: right;
+        background-color: #232730; 
+        width: 25%;
+        margin-left: 75%;
+        position: fixed;
+        margin-top: -37.95%;
+        height: 100%;
+        overflow: auto;
+    }
+
+    .lesson {
+        background-color: #4CAF50;
+        font-size: 40px;
+        width: 100%;
+        padding-block: 10px;
+        padding-left: 20px;
+    }
+
+    input {
+        width: 100%;
+        float: right;
+        background-color: #232730;
+        color: white;
+        padding-block: 14px;
+        padding-left: 20px;
+        border: 0;
+        text-align: left;
+    }
+
+    input:hover:not(.active) {
+        background-color: #555;
+        color: white;
+    }
+
+/* Стиль для подсказки автозаполнения */
+    .CodeMirror-hints {
+        background-color: rgb(250, 250, 250);
+        width: auto;
+        height: auto;
+    }
+
+    

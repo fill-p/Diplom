@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en" >
+    <head>
+        <meta charset="UTF-8">
+        <title>diplom 2</title>
+
+        <!-- Стили codemirror -->
+        <link rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.13.4/codemirror.css'>
+        <link rel="stylesheet" type="text/css" href="https://codemirror.net/addon/hint/show-hint.css"> 
+        
+        <!-- Стили -->
+        <link href="components/styleApp.css" rel="stylesheet">   
+    </head>
+    <body translate="no" >
+
+        <!-- Шапка -->
+        <header style="color: white;">
+            <div id="logo">
+                <img class="logoImg" src="components/images/logo.png">
+            </div>
+            <h>Online compiler</h>
+
+        </header>
+
+            <!-- Левый блок -->
+            <ul>
+                <li>
+                    <a class="active">Меню</a>
+                </li>
+                <li>
+                    <a onclick="toggle(hiddenContentAbout)">About</a>
+                    <div class="menu" id="hiddenContentAbout" style="display: none;">
+                        <div>Программа створена для вивчання JavaScript. Для цього в програмі існують теоретичні матеріали та практичні завдання, для закріплення теоретичних відомостей. Якщо учень не може виконати завдання, то існують відповіді, які допоможуть по коду-прикладу, виконати завдання іншим способом. Також для більш глибокого вивчення мови, програмою передбачено створення інтерфейсів за допомогою Html та CSS, наприклад для вивчення DOM, або взаємодії з кнопками.</div>
+                    </div>
+                </li>
+                <li>
+                    <a onclick="toggle(hiddenContentLessons)">Lessons</a>
+                    <div class="menu" id="hiddenContentLessons" style="display: none;">
+                        <a onclick="window.open('https://developer.mozilla.org/ru/docs/Web/JavaScript/Reference/Global_Objects/Math');" >Урок 1: Математичні дії з Math</a>
+                        <a onclick="window.open('https://developer.mozilla.org/ru/docs/Web/JavaScript/Guide/Loops_and_iteration');" >Урок 2: Цикли</a>
+                        <a onclick="window.open('https://developer.mozilla.org/ru/docs/Web/API/Document_Object_Model/Introduction');" >Урок 3: Робота з DOM</a>
+                    </div>
+                </li>
+                <li>
+                    <a onclick="toggle(hiddenContentHelp)">Help</a>
+                    <div class="menu" id="hiddenContentHelp" style="display: none;">
+                        <div>1. Для роботи в програмі потрібно вписати в текстове поле код на мові Html/CSS/JS та запустити його за допомогою однієї з кнопок вгорі;</div>
+                        <div>2. При наведенні на кнопки:<br><img class="imgH" src="components/images/startImg.PNG"> <img class="imgH" src="components/images/themeImg.PNG"> <img class="imgH" src="components/images/saveImg.PNG"><br>висвічується підказка, яка пояснює функціонал кнопок;</div>
+                        <div>3. В блоці 'Уроки' знаходяться завдання. При одиничному натискані на урок - текстове поле заповниться завданням та початковими умовами. При подвійному кліку по уроку - текстове поле заповниться відповіддю;</div>
+                        <div>4. В текстовому полі працюють більшість комбінацій клавіш, такі як:<br>
+                            Ctrl + C - копіювати<br>
+                            Ctrl + V - вставити<br>
+                            Ctrl + X - вирізати<br>
+                            Ctrl + S - зберегти<br>
+                            Ctrl + F - пошук<br>
+                            Ctrl + Space - підказки(працюють лише в javascript коді)<br>
+                            Ctrl + Z - скасовує останню зміну<br>
+                            Ctrl + Y - повторює останню зміну
+                        </div>
+                    </div>
+                </li>
+                <li>
+                    <a onclick="toggle(hiddenContentContact)">Contact</a>
+                    <div class="menu" id="hiddenContentContact" style="display: none;">
+                        Роботу виконав студент ТМ-82 Петренко Пилип<br>
+                            <input type="image" class="contact" src="components/images/gmail.png" onclick="window.open('mailto:filpetrenko2000@gmail.com')">
+                            <input type="image" class="contact" src="components/images/telegram.png" onclick="window.open('https://telegram.me/filip_p')">
+                    </div>
+                </li>
+            </ul>
+
+            <!-- Основной блок -->
+            <div class="container">
+                <button onclick="run()" title="Запуск коду"><img class="icon" src="components/images/Start-icon.png"></button>
+                <button class="btn-theme" title="Зміна теми"><img class="icon" src="components/images/theme.png"></button>
+                <button onclick="saveTextAsFile()" title="Завантаження"><img class="icon" src="components/images/save.png"></button>
+                <div class="code-container">
+                    <textarea id="code"></textarea>
+                </div>
+                <div>
+                    <iframe id="code_result" width="100%" height="500px" style="border: 5px solid gray"></iframe>
+                </div>
+            </div>
+
+            <!-- Правый блок -->
+            <div class="rightContainer">
+                <div class="lesson" >Уроки</div>
+                <div>
+                    <input type="button"  value="Урок 1: Математичні дії з Math" onclick="lesson1()" ondblclick="lesson1Answer()">
+                    <input type="button" value="Урок 2: Цикли" onclick="lesson2()" ondblclick="lesson2Answer()">
+                    <input type="button" value="Урок 3: Робота з DOM" onclick="lesson3()" ondblclick="lesson3Answer()">
+                </div>
+            </div>
+
+        <!-- Скрипты codemirror   -->
+        <script src='https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.13.4/codemirror.js'></script>
+        <script type="text/javascript" src="https://codemirror.net/addon/hint/show-hint.js"></script>
+        <script type="text/javascript" src="https://codemirror.net/addon/hint/javascript-hint.js"></script>
+        <script src='https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.13.4/mode/xml/xml.js'></script>
+        <script src='https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.13.4/mode/css/css.js'></script>
+        <script src='https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.13.4/mode/javascript/javascript.js'></script>
+        <script src='https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.13.4/mode/htmlmixed/htmlmixed.js'></script>
+
+        <!-- Скрипты -->
+        <script id="rendered-js" src="app.js"></script>
+        <script src="addLessonsToTextarea.js"></script>
+    </body>
+</html>
