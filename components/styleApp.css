@@ -78,7 +78,8 @@
         width: 25%;
         margin-left: 75%;
         position: fixed;
-        margin-top: -37.95%;
+        margin-top: 0%;
+        top: 10%;
         height: 100%;
         overflow: auto;
     }
@@ -230,7 +231,8 @@
         width: 25%;
         margin-left: 75%;
         position: fixed;
-        margin-top: -37.95%;
+        margin-top: 0%;
+        top: 10%;
         height: 100%;
         overflow: auto;
     }
