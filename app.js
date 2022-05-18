@@ -25,6 +25,47 @@ function run() {
     doc.close();
 }
 
+// Перевірка правильності кода
+function StringSearch() {
+  var SearchTermTest1 = document.getElementById("textBox1.1").value;
+  var SearchTermTest2Option1 = document.getElementById("textBox1.2.1").value;
+  var SearchTermTest2Option2 = document.getElementById("textBox1.2.2").value;
+  var SearchTermTest3Option1 = document.getElementById("textBox1.3.1").value;
+  var SearchTermTest3Option2 = document.getElementById("textBox1.3.2").value;
+  var SearchTermTest1Condition = document.getElementById("textBoxCondition1.1").value;
+  var SearchTermTest2Condition = document.getElementById("textBoxCondition1.2").value;
+  var SearchTermTest3Condition = document.getElementById("textBoxCondition1.3").value;
+  var TextSearch = editor.getValue();
+
+  if (SearchTermTest1Condition.length > 0 && TextSearch.indexOf(SearchTermTest1Condition) > -1) {
+    if (SearchTermTest1.length > 0 && TextSearch.indexOf(SearchTermTest1) > -1) {
+      swal("Вірно!", "", "success");
+      document.getElementById('test1').value = 'Тест 1: Корінь з допомогою Math - зараховано';
+    } else {
+      swal("Не вірно!", "", "error");
+      document.getElementById('test1').value = 'Тест 1: Корінь з допомогою Math - не зараховано';
+    }
+  } else if (SearchTermTest2Condition.length > 0 && TextSearch.indexOf(SearchTermTest2Condition) > -1 ) {
+    if (SearchTermTest2Option1.length > 0 && TextSearch.indexOf(SearchTermTest2Option1) > -1 || TextSearch.indexOf(SearchTermTest2Option2) > -1) {
+      swal("Вірно!", "", "success");
+      document.getElementById('test2').value = 'Тест 2: Квадрат числа з допомогою Math - зараховано';
+    } else {
+      swal("Не вірно!", "", "error");
+      document.getElementById('test2').value = 'Тест 2: Квадрат числа з допомогою Math - не зараховано';
+    }
+  } else if (SearchTermTest3Condition.length > 0 && TextSearch.indexOf(SearchTermTest3Condition) > -1) {
+    if (SearchTermTest3Option1.length > 0 && TextSearch.indexOf(SearchTermTest3Option1) > -1 || TextSearch.indexOf(SearchTermTest3Option2) > -1) {
+      swal("Вірно!", "", "success");
+      document.getElementById('test3').value = 'Тест 3: Число в степені числа з допомогою Math - зараховано';
+    } else {
+      swal("Не вірно!", "", "error");
+      document.getElementById('test3').value = 'Тест 3: Число в степені числа з допомогою Math - не зараховано';
+    }
+  } else {
+    alert('Введений довільний код, або коду немає');
+  }
+}
+
 // Сохранение контента с textarea по кнопке 
 function saveTextAsFile() {
     var textToWrite = editor.getValue();
