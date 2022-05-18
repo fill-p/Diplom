@@ -237,6 +237,13 @@
         overflow: auto;
     }
 
+    .menu2 {
+        width: 100%;
+        padding-left: 20px;
+        border: 0;
+        text-align: left;
+     }
+
     .lesson {
         background-color: #4CAF50;
         font-size: 40px;
