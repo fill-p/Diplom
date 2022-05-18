@@ -7,6 +7,9 @@
         <!-- Стили codemirror -->
         <link rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.13.4/codemirror.css'>
         <link rel="stylesheet" type="text/css" href="https://codemirror.net/addon/hint/show-hint.css"> 
+
+        <!-- Стили alert -->   
+        <link rel='stylesheet' href='https://cdn.jsdelivr.net/npm/sweetalert2@7.12.15/dist/sweetalert2.min.css'>
         
         <!-- Стили -->
         <link href="components/styleApp.css" rel="stylesheet">   
@@ -45,7 +48,7 @@
                     <a onclick="toggle(hiddenContentHelp)">Help</a>
                     <div class="menu" id="hiddenContentHelp" style="display: none;">
                         <div>1. Для роботи в програмі потрібно вписати в текстове поле код на мові Html/CSS/JS та запустити його за допомогою однієї з кнопок вгорі;</div>
-                        <div>2. При наведенні на кнопки:<br><img class="imgH" src="https://raw.githubusercontent.com/fill-p/Diplom/gh-pages/components/images/startImg.png"> <img class="imgH" src="components/images/themeImg.PNG"> <img class="imgH" src="components/images/saveImg.PNG"><br>висвічується підказка, яка пояснює функціонал кнопок;</div>
+                        <div>2. При наведенні на кнопки:<br><img class="imgH" src="components/images/startImg.PNG"> <img class="imgH" src="components/images/themeImg.PNG"> <img class="imgH" src="components/images/saveImg.PNG"> <img class="imgH" src="components/images/checkImg.PNG"><br>висвічується підказка, яка пояснює функціонал кнопок;</div>
                         <div>3. В блоці 'Уроки' знаходяться завдання. При одиничному натискані на урок - текстове поле заповниться завданням та початковими умовами. При подвійному кліку по уроку - текстове поле заповниться відповіддю;</div>
                         <div>4. В текстовому полі працюють більшість комбінацій клавіш, такі як:<br>
                             Ctrl + C - копіювати<br>
@@ -74,6 +77,7 @@
                 <button onclick="run()" title="Запуск коду"><img class="icon" src="components/images/Start-icon.png"></button>
                 <button class="btn-theme" title="Зміна теми"><img class="icon" src="components/images/theme.png"></button>
                 <button onclick="saveTextAsFile()" title="Завантаження"><img class="icon" src="components/images/save.png"></button>
+                <button onclick="StringSearch()" title="Перевірка на вірність виконання" class="alert"><img class="icon" src="components/images/check.png"></button>
                 <div class="code-container">
                     <textarea id="code"></textarea>
                 </div>
@@ -86,11 +90,25 @@
             <div class="rightContainer">
                 <div class="lesson" >Уроки</div>
                 <div>
-                    <input type="button"  value="Урок 1: Математичні дії з Math" onclick="lesson1()" ondblclick="lesson1Answer()">
+                    <input type="button" value="Урок 1: Математичні дії з Math" onclick="toggle(hiddenContentTest1)">
+                        <div class="menu2" id="hiddenContentTest1" style="display: none;">
+                            <input type="button" id="test1" value="Тест 1: Корінь з допомогою Math" onclick="lesson1Test1()" ondblclick="lesson1Test1Answer()">
+                            <input type="button" id="test2" value="Тест 2: Квадрат числа з допомогою Math" onclick="lesson1Test2()" ondblclick="lesson1Test2Answer()">
+                            <input type="button" id="test3" value="Тест 3: Число в степені числа з допомогою Math" onclick="lesson1Test3()" ondblclick="lesson1Test3Answer()">
+                                <form>
+                                    <input type="text" name="text_box_1" id="textBox1.1" value="Math.sqrt(a)" hidden>
+                                    <input type="text" name="text_box_1" id="textBox1.2.1" value="Math.pow(a, 2)" hidden>
+                                    <input type="text" name="text_box_1" id="textBox1.2.2" value="Math.pow(a,2)" hidden>
+                                    <input type="text" name="text_box_1" id="textBox1.3.1" value="Math.pow(b, a)" hidden>
+                                    <input type="text" name="text_box_1" id="textBox1.3.2" value="Math.pow(b,a)" hidden>
+                                    <input type="text" name="text_box_2" id="textBoxCondition1.1" value="За допомогою Math вивести корінь числа" hidden>
+                                    <input type="text" name="text_box_2" id="textBoxCondition1.2" value="За допомогою Math вивести квадрат числа" hidden>
+                                    <input type="text" name="text_box_2" id="textBoxCondition1.3" value="За допомогою Math вивести b в степені a" hidden>
+                                 </form>
+                        </div>
                     <input type="button" value="Урок 2: Цикли" onclick="lesson2()" ondblclick="lesson2Answer()">
                     <input type="button" value="Урок 3: Робота з DOM" onclick="lesson3()" ondblclick="lesson3Answer()">
                 </div>
-            </div>
 
         <!-- Скрипты codemirror   -->
         <script src='https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.13.4/codemirror.js'></script>
@@ -100,6 +118,9 @@
         <script src='https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.13.4/mode/css/css.js'></script>
         <script src='https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.13.4/mode/javascript/javascript.js'></script>
         <script src='https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.13.4/mode/htmlmixed/htmlmixed.js'></script>
+        
+        <!-- Скрипты alert   -->
+        <script src="https://cdn.jsdelivr.net/npm/sweetalert2@7.12.15/dist/sweetalert2.all.min.js"></script>
 
         <!-- Скрипты -->
         <script id="rendered-js" src="app.js"></script>
