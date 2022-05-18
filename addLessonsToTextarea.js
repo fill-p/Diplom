@@ -1,31 +1,69 @@
-function lesson1() {
+function lesson1Test1() {
     editor.setValue(
         '<script>\n' + 
-        '//За допомогою Math вивести корінь числа, квадрат числа, та b в степені a\n' + 
+        '//За допомогою Math вивести корінь числа\n' + 
+        '    var a = 5;\n' + 
+        '    var result;\n' + 
+        '</script>'
+        )
+ }
+
+ function lesson1Test2() {
+    editor.setValue(
+        '<script>\n' + 
+        '//За допомогою Math вивести квадрат числа\n' + 
+        '    var a = 5;\n' + 
+        '    var result;\n' + 
+        '</script>'
+        )
+ }
+ 
+ function lesson1Test3() {
+    editor.setValue(
+        '<script>\n' + 
+        '//За допомогою Math вивести b в степені a\n' + 
         '    var a = 5;\n' + 
         '    var b = 2;\n' + 
         '    var result;\n' + 
         '</script>'
         )
- 
  }
 
- function lesson1Answer() {
+ function lesson1Test1Answer() {
     editor.setValue(
         '<script>\n' + 
-        '//За допомогою Math вивести корінь числа, квадрат числа, та b в степені a\n' + 
+        '//За допомогою Math вивести корінь числа\n' + 
         '    var a = 5;\n' + 
-        '    var b = 2;\n' + 
         '    var result;\n\n' + 
         '    result = Math.sqrt(a);\n' + 
         '    alert(`Sqrt = ${result}`);\n\n' + 
-        '    result = Math.pow(a,2);\n' + 
+        '</script>'
+        )
+ }
+
+ function lesson1Test2Answer() {
+    editor.setValue(
+        '<script>\n' + 
+        '//За допомогою Math вивести квадрат числа\n' + 
+        '    var a = 5;\n' + 
+        '    var result;\n\n' + 
+        '    result = Math.pow(a, 2);\n' + 
         '    alert(`Pow2 = ${result}`);\n\n' + 
+        '</script>'
+        )
+ }
+
+ function lesson1Test3Answer() {
+    editor.setValue(
+        '<script>\n' + 
+        '//За допомогою Math вивести b в степені a\n' + 
+        '    var a = 5;\n' + 
+        '    var b = 2;\n' + 
+        '    var result;\n\n' + 
         '    result = Math.pow(b, a);\n' + 
         '    alert(`PowBA = ${result}`);\n' + 
         '</script>'
         )
- 
  }
 
  function lesson2() {
