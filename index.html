@@ -8,6 +8,9 @@
         <link rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.13.4/codemirror.css'>
         <link rel="stylesheet" type="text/css" href="https://codemirror.net/addon/hint/show-hint.css"> 
         
+        <!-- Стили alert -->   
+        <link rel='stylesheet' href='https://cdn.jsdelivr.net/npm/sweetalert2@7.12.15/dist/sweetalert2.min.css'>
+        
         <!-- Стили -->
         <link href="components/styleApp.css" rel="stylesheet">   
     </head>
@@ -74,6 +77,7 @@
                 <button onclick="run()" title="Запуск коду"><img class="icon" src="components/images/Start-icon.png"></button>
                 <button class="btn-theme" title="Зміна теми"><img class="icon" src="components/images/theme.png"></button>
                 <button onclick="saveTextAsFile()" title="Завантаження"><img class="icon" src="components/images/save.png"></button>
+                <button onclick="StringSearch()" title="Перевірка на вірність виконання" class="alert"><img class="icon" src="components/images/check.png"></button>
                 <div class="code-container">
                     <textarea id="code"></textarea>
                 </div>
@@ -84,13 +88,62 @@
 
             <!-- Правый блок -->
             <div class="rightContainer">
-                <div class="lesson" >Уроки</div>
+                <div class="lesson" >Тести</div>
                 <div>
-                    <input type="button"  value="Урок 1: Математичні дії з Math" onclick="lesson1()" ondblclick="lesson1Answer()">
-                    <input type="button" value="Урок 2: Цикли" onclick="lesson2()" ondblclick="lesson2Answer()">
-                    <input type="button" value="Урок 3: Робота з DOM" onclick="lesson3()" ondblclick="lesson3Answer()">
+                    <input type="button" value="Тест 1: Математичні дії з Math" onclick="toggle(hiddenContentTest1)">
+                        <div class="menu2" id="hiddenContentTest1" style="display: none;">
+                            <input type="button" id="test1" value="Завдання 1: Корінь з допомогою Math" onclick="lesson1Test1()" ondblclick="lesson1Test1Answer()">
+                            <input type="button" id="test2" value="Завдання 2: Квадрат числа з допомогою Math" onclick="lesson1Test2()" ondblclick="lesson1Test2Answer()">
+                            <input type="button" id="test3" value="Завдання 3: Число в степені числа з допомогою Math" onclick="lesson1Test3()" ondblclick="lesson1Test3Answer()">
+                            <input type="button" id="gradeBtn1" value="Оцінка" onclick="grade1()">
+                                <form>
+                                    <input type="text" id="textBox1.1" value="= Math.sqrt(a);" hidden>
+                                    <input type="text" id="textBox1.2.1" value="= Math.pow(a, 2);" hidden>
+                                    <input type="text" id="textBox1.2.2" value="= Math.pow(a,2);" hidden>
+                                    <input type="text" id="textBox1.3.1" value="= Math.pow(b, a);" hidden>
+                                    <input type="text" id="textBox1.3.2" value="= Math.pow(b,a);" hidden>
+                                    <input type="text" id="textBoxCondition1.1" value="За допомогою Math вивести корінь числа" hidden>
+                                    <input type="text" id="textBoxCondition1.2" value="За допомогою Math вивести квадрат числа" hidden>
+                                    <input type="text" id="textBoxCondition1.3" value="За допомогою Math вивести b в степені a" hidden>
+                                 </form>
+                        </div>
+                    <input type="button" value="Тест 2: Цикли" onclick="toggle(hiddenContentTest2)">
+                        <div class="menu2" id="hiddenContentTest2" style="display: none;">
+                            <input type="button" id="test4" value="Завдання 1: Цикл for" onclick="lesson2Test1()" ondblclick="lesson2Test1Answer()">
+                            <input type="button" id="test5" value="Завдання 2: Цикл while" onclick="lesson2Test2()" ondblclick="lesson2Test2Answer()">
+                            <input type="button" id="test6" value="Завдання 3: Цикл do while" onclick="lesson2Test3()" ondblclick="lesson2Test3Answer()">
+                            <input type="button" id="gradeBtn2" value="Оцінка" onclick="grade2()">
+                                <form>
+                                    <input type="text" id="textBox2.1.1" value="for (var i = 1; i < 4; i++) {" hidden>
+                                    <input type="text" id="textBox2.1.2" value="for (var i = 1; i <= 3; i++) {" hidden>
+                                    <input type="text" id="textBox2.2.1" value="while (i < 3) {" hidden>
+                                    <input type="text" id="textBox2.2.2" value="while (i <= 2) {" hidden>
+                                    <input type="text" id="textBox2.3.1" value="} while (i < 3);" hidden>
+                                    <input type="text" id="textBox2.3.2" value="} while (i <= 2);" hidden>
+                                    <input type="text" id="textBoxIterator" value="i++;" hidden>
+                                    <input type="text" id="textBoxCondition2.1" value="Вивести числа від 1 до 3 за допомогою цикла for" hidden>
+                                    <input type="text" id="textBoxCondition2.2" value="Вивести числа від 1 до 3 за допомогою циклa while" hidden>
+                                    <input type="text" id="textBoxCondition2.3" value="Вивести числа від 1 до 3 за допомогою циклa do while" hidden>
+                                </form>
+                        </div>
+                    <input type="button" value="Тест 3: Робота з DOM" onclick="toggle(hiddenContentTest3)">
+                    <div class="menu2" id="hiddenContentTest3" style="display: none;">
+                        <input type="button" id="test7" value="Завдання 1: Зміна тексту в input" onclick="lesson3Test1()" ondblclick="lesson3Test1Answer()">
+                        <input type="button" id="test8" value="Завдання 2: Зміна кольору в input" onclick="lesson3Test2()" ondblclick="lesson3Test2Answer()">
+                        <!-- <input type="button" id="test9" value="Завдання 3: Цикл do while" onclick="lesson3()" ondblclick="lesson3Answer()"> -->
+                        <input type="button" id="gradeBtn3" value="Оцінка" onclick="grade3()">
+                            <form>
+                                <input type="text" id="textBox3.1.1" value="var input = document.getElementById('inputBlock');" hidden>
+                                <input type="text" id="textBox3.1.2" value="input.value = '" hidden>
+                                <input type="text" id="textBox3.1.3" value='var input = document.getElementById("inputBlock");' hidden>
+                                <input type="text" id="textBox3.1.4" value='input.value = "' hidden>
+                                <input type="text" id="textBox3.2.1" value="input.style.color = '" hidden>
+                                <input type="text" id="textBox3.2.2" value='input.style.color = "' hidden>
+                                <input type="text" id="textBoxCondition3.1" value="Змінити текст в inupt з допомогою id натисканням на кнопку" hidden>
+                                <input type="text" id="textBoxCondition3.2" value="Змінити колір тексу в inupt з допомогою id натисканням на кнопку" hidden>
+                            </form>
+                    </div>
                 </div>
-            </div>
 
         <!-- Скрипты codemirror   -->
         <script src='https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.13.4/codemirror.js'></script>
@@ -100,7 +153,10 @@
         <script src='https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.13.4/mode/css/css.js'></script>
         <script src='https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.13.4/mode/javascript/javascript.js'></script>
         <script src='https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.13.4/mode/htmlmixed/htmlmixed.js'></script>
-
+        
+        <!-- Скрипты alert   -->
+        <script src="https://cdn.jsdelivr.net/npm/sweetalert2@7.12.15/dist/sweetalert2.all.min.js"></script>
+                
         <!-- Скрипты -->
         <script id="rendered-js" src="app.js"></script>
         <script src="addLessonsToTextarea.js"></script>
